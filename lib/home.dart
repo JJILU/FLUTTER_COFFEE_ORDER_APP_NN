@@ -1,6 +1,7 @@
+import 'package:coffee_order_app/components/styled_body_text.dart';
 import 'package:flutter/material.dart';
 
-import 'package:coffee_order_app/components/coffee_pref.dart';
+import 'package:coffee_order_app/coffee_pref.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -9,13 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Coffee Card',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: const StyledBodyText(20, FontWeight.normal,text:'Coffee Card',color:Colors.white,),
         backgroundColor: Colors.brown[700],
         centerTitle: true,
       ),
@@ -25,16 +20,20 @@ class Home extends StatelessWidget {
           Container(
             color: Colors.brown[200],
             padding: const EdgeInsets.all(20),
-            child: const Text('How I like my coffee...'),
+            child: StyledBodyText(18, FontWeight.normal,text:'How I Like my coffee...',color:Colors.brown[900],),
           ),
           Container(
             color: Colors.brown[100],
             padding: const EdgeInsets.all(20),
             child: const CoffeePref(),
           ),
-          Image.asset(
-            'assets/img/coffee_bg.jpg'
-          )
+          Expanded(
+            child: Image.asset(
+              'assets/img/coffee_bg.jpg',
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.bottomCenter,
+            ),
+          ),
         ],
       ),
     );
